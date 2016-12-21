@@ -1,0 +1,42 @@
+.time-table {
+  border: 1px solid lightgray;
+  border-radius: 0.5em;
+  margin: 1em;
+  padding: 1em;
+  box-shadow: 0.2em 0.2em 0.5em #ddd;
+
+
+}
+
+.user-lane {
+  margin-bottom: 0.2em;
+  display: flex;
+  align-items: center;
+
+  dt {
+    flex-basis: 6em;
+  }
+
+  dl {
+    flex-grow: 1;
+  }
+}
+
+.time-progress {
+  position: relative;
+  height: 1.5em;
+  width: 100%;
+  background-color: #f1f1f1;
+
+  .time-left {
+    color: white;
+    padding: 0.1em 0.5em;
+  }
+
+  .progress-bar {
+    height: 100%;
+    position:absolute;
+    line-height: inherit;
+    background-color: #f44336;
+  }
+}
