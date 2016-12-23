@@ -19,6 +19,7 @@
 
   dl {
     flex-grow: 1;
+    margin: 0;
   }
 }
 
@@ -28,14 +29,21 @@
   width: 100%;
   background-color: #f1f1f1;
 
-  .time-left {
-    color: white;
+  color: white;
+  text-shadow: 1px 1px black;
+
+  .caption {
     padding: 0.1em 0.5em;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .right {
+    right: 0;
   }
 
   .progress-bar {
     height: 100%;
-    position:absolute;
     line-height: inherit;
     background-color: #f44336;
   }

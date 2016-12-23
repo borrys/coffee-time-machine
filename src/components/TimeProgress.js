@@ -5,26 +5,28 @@ const MAX_TIME = 30;
 
 class TimeProgress extends React.Component {
   render() {
-    const time = this.props.time;
+    const time = moment(this.props.time);
     const now = moment();
-    const timeLeft = moment(time).diff(now, 'minutes', true);
+    const timeLeft = time.diff(now, 'minutes', true);
 
     const timesUp = timeLeft <= 0;
     const nearInfinite = timeLeft >= MAX_TIME;
 
-    let displayTxt = '';
-    if (nearInfinite) displayTxt = '\u221E';
-    else displayTxt = timeLeft.toFixed(0) + ' mins';
+    let timeLeftTxt = '';
+    if (nearInfinite) timeLeftTxt = '\u221E';
+    else timeLeftTxt = timeLeft.toFixed(0) + ' mins';
 
-    const width = Math.min(timeLeft, MAX_TIME) / 0.6;
+    const declaredTimeTxt = time.format('HH:mm');
+
+    const width = Math.min(timeLeft, MAX_TIME) / MAX_TIME * 100;
     const progressBarStyle = {
       width: width + '%'
     };
 
     return <div className='time-progress'>
-      <div className='progress-bar' style={progressBarStyle}>
-        <div className='time-left'>{displayTxt}</div>
-      </div>
+      <div className='caption'>{timeLeftTxt}</div>
+      <div className='caption right'>{declaredTimeTxt}</div>
+      <div className='progress-bar' style={progressBarStyle}></div>
     </div>
   }
 }
