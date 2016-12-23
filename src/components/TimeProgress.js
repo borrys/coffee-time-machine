@@ -3,31 +3,42 @@ import moment from 'moment';
 
 const MAX_TIME = 30;
 
+function calcTimeLeft(time) {
+  const now = moment();
+  return time.diff(now, 'minutes', true);
+}
+
+function getTimeLeftCaption(timeLeft) {
+  const timesUp = timeLeft <= 0;
+  const nearInfinite = timeLeft >= MAX_TIME;
+
+  let timeLeftTxt = '';
+  if (nearInfinite) timeLeftTxt = '\u221E';
+  else if(!timesUp) timeLeftTxt = timeLeft.toFixed(0) + ' mins';
+
+  return timeLeftTxt;
+}
+
+function getBarStyle(timeLeft) {
+  const width = Math.min(timeLeft, MAX_TIME) / MAX_TIME * 100;
+
+  return {
+    width: width + '%'
+  };
+}
+
 class TimeProgress extends React.Component {
   render() {
-    const time = moment(this.props.time);
-    const now = moment();
-    const timeLeft = time.diff(now, 'minutes', true);
-
-    const timesUp = timeLeft <= 0;
-    const nearInfinite = timeLeft >= MAX_TIME;
-
-    let timeLeftTxt = '';
-    if (nearInfinite) timeLeftTxt = '\u221E';
-    else timeLeftTxt = timeLeft.toFixed(0) + ' mins';
-
-    const declaredTimeTxt = time.format('HH:mm');
-
-    const width = Math.min(timeLeft, MAX_TIME) / MAX_TIME * 100;
-    const progressBarStyle = {
-      width: width + '%'
-    };
+    const declaredTime = moment(this.props.time); 
+    const timeLeft = calcTimeLeft(declaredTime);
+    const timeLeftCaption = getTimeLeftCaption(timeLeft);
+    const barStyle = getBarStyle(timeLeft);
 
     return <div className='time-progress'>
-      <div className='caption'>{timeLeftTxt}</div>
-      <div className='caption right'>{declaredTimeTxt}</div>
-      <div className='progress-bar' style={progressBarStyle}></div>
-    </div>
+      <div className='caption'>{timeLeftCaption}</div>
+      <div className='caption right'>{declaredTime.format('HH:mm')}</div>
+      <div className='progress-bar' style={barStyle}></div>
+    </div>;
   }
 }
 
