@@ -1,5 +1,5 @@
 import React from 'react';
-import TimeProgress from './TimeProgress.js';
+import TimeProgress from './TimeProgress';
 
 class User extends React.Component {
   render() {

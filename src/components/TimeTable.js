@@ -1,5 +1,5 @@
 import React from 'react';
-import UserLane from './UserLane.js';
+import UserLane from './UserLane';
 
 function user(u) {
   return <UserLane user={u} key={u.name}/>;
