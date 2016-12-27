@@ -10,8 +10,8 @@ function arrivals(state = [], action) {
   switch (action.type) {
     case DECLARE_ARRIVAL:
       return [
-        ...state.arrivals,
-        {user: action.user, arrival: action.time}
+        ...state,
+        {name: action.name, arrival: action.time}
       ];
     default:
       return state;

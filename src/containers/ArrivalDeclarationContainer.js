@@ -1,0 +1,25 @@
+import { connect } from 'react-redux';
+import moment from 'moment';
+import ArrivalDeclarationPanel from '../components/ArrivalDeclarationPanel';
+import { declareArrival } from '../actions';
+
+function mapStateToProps(state) {
+  return {};
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    declareArrival: function (minutes) {
+      const arrivalTime = moment().add(minutes, 'minutes').valueOf();
+      const action = declareArrival('unnamed', arrivalTime); 
+      dispatch(action);
+    }
+  };
+};
+
+const ArrivalDeclarationContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ArrivalDeclarationPanel);
+
+export default ArrivalDeclarationContainer;

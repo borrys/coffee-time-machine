@@ -1,4 +1,4 @@
-import {DECLARE_ARRIVAL, START_COFFEE_PARTY} from './acitonTypes';
+import {DECLARE_ARRIVAL, START_COFFEE_PARTY} from './actionTypes';
 
 export function declareArrival(name, time) {
   return {

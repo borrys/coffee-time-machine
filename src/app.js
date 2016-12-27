@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import coffeeTimeMachine from './reducers';
 import VisibleTimeTable from './containers/VisibleTimeTable';
+import ArrivalDeclarationContainer from './containers/ArrivalDeclarationContainer';
 
 const arrivals = [
   {name: 'John', arrival: moment().add(5, 'minutes').valueOf()},
@@ -21,7 +22,10 @@ const store = createStore(coffeeTimeMachine, {
 
 render(
   <Provider store={store}>
+    <div>
     <VisibleTimeTable />
+    <ArrivalDeclarationContainer />
+    </div>
   </Provider>,
   document.getElementById('app')
 );
