@@ -29,5 +29,6 @@ module.exports = {
   },
   devServer: {
     contentBase: __dirname + '/src'
-  }
+  },
+  devtool: 'eval-source-map'
 };
