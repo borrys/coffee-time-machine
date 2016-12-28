@@ -9,8 +9,9 @@ const initialState = {
 function arrivals(state = [], action) {
   switch (action.type) {
     case DECLARE_ARRIVAL:
+      const filtered = state.filter(x => x.name != action.name);
       return [
-        ...state,
+        ...filtered,
         {name: action.name, arrival: action.time}
       ];
     default:
