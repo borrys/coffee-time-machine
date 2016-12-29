@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import moment from 'moment';
-import ArrivalDeclarationPanel from '../components/ArrivalDeclarationPanel';
+import ArrivalDeclarationPanel from './ArrivalDeclarationPanel';
 import { declareArrival } from '../actions';
 
 function mapStateToProps(state) {

@@ -1,12 +1,11 @@
-import './stylesheets/application.scss'
 import React from 'react';
-import {render} from 'react-dom';
-import moment from 'moment';
+import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import moment from 'moment';
 import coffeeTimeMachine from './reducers';
-import VisibleTimeTable from './containers/VisibleTimeTable';
-import ArrivalDeclarationContainer from './containers/ArrivalDeclarationContainer';
+import TimeTableContainer from './timeTable/TimeTableContainer';
+import ArrivalDeclarationContainer from './arrivalDeclaration/ArrivalDeclarationContainer';
 
 const arrivals = [
   {name: 'John', arrival: moment().add(5, 'minutes').valueOf()},
@@ -23,8 +22,8 @@ const store = createStore(coffeeTimeMachine, {
 render(
   <Provider store={store}>
     <div>
-    <VisibleTimeTable />
-    <ArrivalDeclarationContainer />
+      <TimeTableContainer />
+      <ArrivalDeclarationContainer />
     </div>
   </Provider>,
   document.getElementById('app')
