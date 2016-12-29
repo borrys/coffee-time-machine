@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import TimeTable from './TimeTable';
 
-import './timeTable.scss'
+import './style.scss'
 
 function mapStateToProps(state) {
   return {

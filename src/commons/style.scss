@@ -1,0 +1,12 @@
+@mixin bordered-box {
+  border: 1px solid lightgray;
+  border-radius: 0.5em;
+  margin: 1em;
+  padding: 1em;
+  box-shadow: 0.2em 0.2em 0.5em #ddd;
+}
+
+@mixin contrast-text {
+  color: white;
+  text-shadow: 1px 1px black;
+}

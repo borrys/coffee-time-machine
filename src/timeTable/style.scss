@@ -1,11 +1,7 @@
+@import '../commons/style';
+
 .time-table {
-  border: 1px solid lightgray;
-  border-radius: 0.5em;
-  margin: 1em;
-  padding: 1em;
-  box-shadow: 0.2em 0.2em 0.5em #ddd;
-
-
+  @include bordered-box;
 }
 
 .user-lane {
@@ -29,8 +25,7 @@
   width: 100%;
   background-color: #f1f1f1;
 
-  color: white;
-  text-shadow: 1px 1px black;
+  @include contrast-text;
 
   .caption {
     padding: 0.1em 0.5em;
@@ -45,6 +40,6 @@
   .progress-bar {
     height: 100%;
     line-height: inherit;
-    background-color: #f44336;
+    background-color: #d9534f;
   }
 }

@@ -1,0 +1,26 @@
+@import '../commons/style';
+
+$button-color: #5cb85c;
+$button-hover: darken($button-color, 10);
+
+.declaration-panel {
+  display: inline-block;
+
+  @include bordered-box;
+
+  button {
+    @include contrast-text;
+
+    margin: 0.2em;
+    padding: 0.5em 1em;
+
+    background-color: $button-color;
+    border: 1px solid $button-hover;
+    border-radius: 0.25em;
+
+    &:hover {
+      background-color: $button-hover;
+    }
+  }
+}
+
