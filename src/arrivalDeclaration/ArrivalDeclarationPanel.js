@@ -5,7 +5,6 @@ const TIMES = [5, 10, 15, 30, 60];
 
 class ArrivalDeclarationPanel extends React.Component {
   render() {
-    console.log('=>>', this.props.declareArrival);
     return <div className='declaration-panel'> {
       TIMES.map(t => (
         <ArrivalDeclarationButton time={t} declareArrival={this.props.declareArrival} key={t}/>
