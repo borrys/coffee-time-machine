@@ -28,9 +28,14 @@ function coffeeTime(state = -1, action) {
   }
 }
 
+function user(state = {}, action) {
+  return state;
+}
+
 const coffeeTimeMachine = combineReducers({
   arrivals,
-  coffeeTime
+  coffeeTime,
+  user
 });
 
 export default coffeeTimeMachine;
