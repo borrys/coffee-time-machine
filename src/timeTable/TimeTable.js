@@ -13,4 +13,4 @@ class TimeTable extends React.Component {
   }
 }
 
-module.exports = TimeTable;
+export default TimeTable;

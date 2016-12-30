@@ -13,9 +13,9 @@ function mapDispatchToProps(dispatch) {
   return {};
 }
 
-const VisibleTimeTable = connect(
+const TimeTableContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(TimeTable);
 
-export default VisibleTimeTable;
+export default TimeTableContainer;
