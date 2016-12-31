@@ -12,9 +12,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    declareArrival: function (minutes) {
+    declareArrival: function (name, minutes) {
       const arrivalTime = moment().add(minutes, 'minutes').valueOf();
-      const action = declareArrival('unnamed', arrivalTime); 
+      const action = declareArrival(name, arrivalTime); 
       dispatch(action);
     }
   };

@@ -2,9 +2,9 @@ import React from 'react';
 
 class ArrivalDeclarationButton extends React.Component {
   render() {
-    const {declareArrival, time} = this.props;
+    const {declareArrival, time, name} = this.props;
     function doDeclare() {
-      declareArrival(time);
+      declareArrival(name, time);
     }
 
     return <button onClick={doDeclare}>
