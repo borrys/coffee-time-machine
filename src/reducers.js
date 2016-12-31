@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
 import moment from 'moment';
-import {DECLARE_ARRIVAL, START_COFFEE_PARTY} from './actionTypes';
+import {DECLARE_ARRIVAL, START_COFFEE_PARTY, SET_NAME} from './actionTypes';
 
 const initialState = {
   arrivals: []
@@ -29,7 +29,12 @@ function coffeeTime(state = -1, action) {
 }
 
 function user(state = {}, action) {
-  return state;
+  switch (action.type) {
+    case SET_NAME:
+      return Object.assign({}, state, {name: action.name});
+    default:
+      return state;
+  }
 }
 
 const coffeeTimeMachine = combineReducers({

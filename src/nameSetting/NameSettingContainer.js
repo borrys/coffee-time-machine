@@ -1,4 +1,6 @@
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { setName } from '../actions';
 import NameSettingPanel from './NameSettingPanel';
 
 function mapStateToProps(state) {
@@ -8,7 +10,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return { };
+  return bindActionCreators({setName}, dispatch);
 }
 
 const NameSettingContainer = connect(

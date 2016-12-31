@@ -18,7 +18,7 @@ const arrivals = [
 
 const store = createStore(coffeeTimeMachine, {
   arrivals,
-  user: {name: 'Harley'},
+  user: {},
   coffeeTime: -1
 });
 

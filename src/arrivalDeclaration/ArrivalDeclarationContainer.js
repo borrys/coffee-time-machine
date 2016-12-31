@@ -5,7 +5,9 @@ import { declareArrival } from '../actions';
 import style from './style.scss';
 
 function mapStateToProps(state) {
-  return {};
+  return {
+    name: state.user.name
+  };
 }
 
 function mapDispatchToProps(dispatch) {

@@ -1,4 +1,4 @@
-import {DECLARE_ARRIVAL, START_COFFEE_PARTY} from './actionTypes';
+import {DECLARE_ARRIVAL, START_COFFEE_PARTY, SET_NAME} from './actionTypes';
 
 export function declareArrival(name, time) {
   return {
@@ -11,5 +11,12 @@ export function declareArrival(name, time) {
 export function startCoffeeParty() {
   return {
     type: START_COFFEE_PARTY
+  };
+}
+
+export function setName(name) {
+  return {
+    type: SET_NAME,
+    name
   };
 }

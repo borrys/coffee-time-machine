@@ -15,7 +15,7 @@ class NameSettingPanel extends React.Component {
 
   applyChange() {
     if (this.newName) {
-      console.log('new name', this.newName);
+      this.props.setName(this.newName);
     }
   }
 }
