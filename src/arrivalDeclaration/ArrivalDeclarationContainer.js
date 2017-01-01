@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import ArrivalDeclarationPanel from './ArrivalDeclarationPanel';
 import { declareArrival } from '../actions';
-import style from './style.scss';
 
 function mapStateToProps(state) {
   return {

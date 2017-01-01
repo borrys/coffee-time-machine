@@ -1,5 +1,6 @@
 import React from 'react';
 import UserLane from './UserLane';
+import './style.scss';
 
 function user(u) {
   return <UserLane user={u} key={u.name}/>;

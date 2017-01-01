@@ -1,8 +1,6 @@
 import { connect } from 'react-redux';
 import TimeTable from './TimeTable';
 
-import './style.scss'
-
 function mapStateToProps(state) {
   return {
     users: state.arrivals

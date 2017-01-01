@@ -1,0 +1,27 @@
+@import '../commons/style';
+
+$button-color: #5c5cb8;
+$input-color: lighten($button-color, 25);
+
+.name-setting {
+  @include bordered-box;
+  display: inline-block;
+
+  input {
+    outline: none;
+    margin-right: 0.5em;
+    height: 2em;
+    border: none;
+    border-bottom: 1px solid $input-color;
+    padding: 0 0.5em;
+
+    &:focus {
+      border-bottom-width: 2px;
+    }
+  }
+
+
+  button {
+    @include button($button-color);
+  }
+}

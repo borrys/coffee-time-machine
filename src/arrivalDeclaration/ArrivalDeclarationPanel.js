@@ -1,5 +1,6 @@
 import React from 'react';
 import ArrivalDeclarationButton from './ArrivalDeclarationButton';
+import style from './style.scss';
 
 const TIMES = [5, 10, 15, 30, 60];
 

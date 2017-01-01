@@ -26,8 +26,8 @@ render(
   <Provider store={store}>
     <div>
       <TimeTableContainer />
-      <ArrivalDeclarationContainer />
       <NameSettingContainer />
+      <ArrivalDeclarationContainer />
     </div>
   </Provider>,
   document.getElementById('app')
