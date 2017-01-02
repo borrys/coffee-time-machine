@@ -1,4 +1,5 @@
-import {DECLARE_ARRIVAL, START_COFFEE_PARTY, SET_NAME} from './actionTypes';
+import {DECLARE_ARRIVAL, START_COFFEE_PARTY, SET_NAME, TICK} from './actionTypes';
+import moment from 'moment';
 
 export function declareArrival(name, time) {
   return {
@@ -19,4 +20,10 @@ export function setName(name) {
     type: SET_NAME,
     name
   };
+}
+
+export function tick() {
+  return (dispatch, getState) => {
+    setInterval(() => dispatch({ type: TICK }), 1000);
+  }
 }

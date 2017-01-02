@@ -3,8 +3,7 @@ import moment from 'moment';
 
 const MAX_TIME = 30;
 
-function calcTimeLeft(time) {
-  const now = moment();
+function calcTimeLeft(time, now) {
   return time.diff(now, 'minutes', true);
 }
 
@@ -30,7 +29,8 @@ function getBarStyle(timeLeft) {
 class TimeProgress extends React.Component {
   render() {
     const declaredTime = moment(this.props.time); 
-    const timeLeft = calcTimeLeft(declaredTime);
+    const now = moment(this.props.now);
+    const timeLeft = calcTimeLeft(declaredTime, now);
     const timeLeftCaption = getTimeLeftCaption(timeLeft);
     const barStyle = getBarStyle(timeLeft);
 

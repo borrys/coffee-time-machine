@@ -3,7 +3,8 @@ import TimeTable from './TimeTable';
 
 function mapStateToProps(state) {
   return {
-    users: state.arrivals
+    users: state.arrivals,
+    now: state.now
   };
 }
 

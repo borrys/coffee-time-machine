@@ -1,13 +1,15 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import moment from 'moment';
 import coffeeTimeMachine from './reducers';
 
 import TimeTableContainer from './timeTable/TimeTableContainer';
 import ArrivalDeclarationContainer from './arrivalDeclaration/ArrivalDeclarationContainer';
 import NameSettingContainer from './nameSetting/NameSettingContainer';
+import { tick } from './actions.js';
 
 const arrivals = [
   {name: 'John', arrival: moment().add(5, 'minutes').valueOf()},
@@ -16,11 +18,9 @@ const arrivals = [
   {name: 'George', arrival: moment().add(36, 'minutes').valueOf()}
 ];
 
-const store = createStore(coffeeTimeMachine, {
-  arrivals,
-  user: {},
-  coffeeTime: -1
-});
+const store = createStore(coffeeTimeMachine, { arrivals }, applyMiddleware(thunk)); 
+
+store.dispatch(tick());
 
 render(
   <Provider store={store}>
