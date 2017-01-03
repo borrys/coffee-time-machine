@@ -9,6 +9,8 @@ import coffeeTimeMachine from './reducers';
 import TimeTableContainer from './timeTable/TimeTableContainer';
 import ArrivalDeclarationContainer from './arrivalDeclaration/ArrivalDeclarationContainer';
 import NameSettingContainer from './nameSetting/NameSettingContainer';
+import CoffeePartyNotificationContainer from './coffeeParty/CoffeePartyNotificationContainer';
+import CoffeePartyStarterContainer from './partyStarter/CoffeePartyStarterContainer';
 import { tick } from './actions.js';
 
 const arrivals = [
@@ -28,6 +30,8 @@ render(
       <TimeTableContainer />
       <NameSettingContainer />
       <ArrivalDeclarationContainer />
+      <CoffeePartyNotificationContainer />
+      <CoffeePartyStarterContainer />
     </div>
   </Provider>,
   document.getElementById('app')
