@@ -1,0 +1,9 @@
+@import '../commons/style';
+
+$button-color: #5cb85c;
+
+.coffee-party-starter {
+  button {
+    @include button($button-color);
+  }
+}

@@ -1,0 +1,32 @@
+@import '../commons/style.scss';
+
+.coffee-notification {
+  @include bordered-box;
+  background-color: #efefef;
+
+  position: absolute;
+  z-index: 100;
+  width: 70%;
+  height: 70%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+
+  text-align: center;
+  font-family: 'DejaVu Sans';
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  h1 {
+    font-size: 4em;
+    margin: 0;
+  }
+
+  .timer {
+    font-size: 6em;
+    margin: 0;
+  }
+}
