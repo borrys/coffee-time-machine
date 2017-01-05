@@ -1,4 +1,4 @@
-import {DECLARE_ARRIVAL, START_COFFEE_PARTY, SET_NAME, TICK} from './actionTypes';
+import {DECLARE_ARRIVAL, START_COFFEE_PARTY, DISMISS_COFFEE_NOTIFICATION, SET_NAME, TICK} from './actionTypes';
 import moment from 'moment';
 
 export function declareArrival(name, time) {
@@ -12,6 +12,12 @@ export function declareArrival(name, time) {
 export function startCoffeeParty() {
   return {
     type: START_COFFEE_PARTY
+  };
+}
+
+export function dismissCoffeeNotification() {
+  return {
+    type: DISMISS_COFFEE_NOTIFICATION
   };
 }
 

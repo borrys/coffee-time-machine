@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
 import moment from 'moment';
-import {DECLARE_ARRIVAL, START_COFFEE_PARTY, SET_NAME, TICK} from './actionTypes';
+import {DECLARE_ARRIVAL, START_COFFEE_PARTY, DISMISS_COFFEE_NOTIFICATION, SET_NAME, TICK} from './actionTypes';
 
 const initialState = {
   arrivals: []
@@ -19,10 +19,16 @@ function arrivals(state = [], action) {
   }
 }
 
-function coffeeTime(state = -1, action) {
+function coffee(state = {}, action) {
   switch (action.type) {
     case START_COFFEE_PARTY:
-      return moment().valueOf();
+      return {
+        time: moment().valueOf(),
+        notification: true
+      };
+      break;
+    case DISMISS_COFFEE_NOTIFICATION:
+      return Object.assign({}, state, { notification: false });
     default:
       return state;
   }
@@ -48,7 +54,7 @@ function now(state = moment().valueOf(), action) {
 
 const coffeeTimeMachine = combineReducers({
   arrivals,
-  coffeeTime,
+  coffee,
   user,
   now
 });

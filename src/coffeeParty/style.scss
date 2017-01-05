@@ -25,4 +25,17 @@
     font-size: 6em;
     margin: 0;
   }
+
+  .dismiss {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    font-size: 1.5em;
+    @include button(#e0e0e0);
+
+    &::before {
+      color: crimson;
+      content: 'X';
+    }
+  }
 }

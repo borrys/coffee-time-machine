@@ -12,6 +12,7 @@ class CoffeePartyContainer extends React.Component {
         <div className='coffee-notification'>
           <h1>Coffee party started</h1>
           <div className='timer'>{timer}</div>
+          <div className='dismiss' onClick={this.props.dismiss} />
         </div>
       </Modal>;
     }
