@@ -4,14 +4,10 @@
   @include bordered-box;
   background-color: #efefef;
 
-  position: absolute;
-  z-index: 100;
+  position: relative;
+
   width: 70%;
-  height: 70%;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+  height: 50%;
   margin: auto;
 
   text-align: center;
