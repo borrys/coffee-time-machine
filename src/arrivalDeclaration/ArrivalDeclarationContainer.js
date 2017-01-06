@@ -5,15 +5,15 @@ import { declareArrival } from '../actions';
 
 function mapStateToProps(state) {
   return {
-    name: state.user.name
+    visible: !!state.user.name
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    declareArrival: function (name, minutes) {
+    declareArrival(minutes) {
       const arrivalTime = moment().add(minutes, 'minutes').valueOf();
-      const action = declareArrival(name, arrivalTime); 
+      const action = declareArrival(arrivalTime); 
       dispatch(action);
     }
   };

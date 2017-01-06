@@ -1,11 +1,9 @@
 import {DECLARE_ARRIVAL, START_COFFEE_PARTY, DISMISS_COFFEE_NOTIFICATION, SET_NAME, TICK} from './actionTypes';
-import moment from 'moment';
 
-export function declareArrival(name, time) {
-  return {
-    type: DECLARE_ARRIVAL,
-    name,
-    time
+export function declareArrival(time) {
+  return (dispatch, getState) => {
+    const name = getState().user.name;
+    dispatch({ type: DECLARE_ARRIVAL, name, time }); 
   };
 }
 
