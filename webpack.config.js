@@ -1,5 +1,3 @@
-const webpack = require('webpack');
-
 module.exports = {
   context: __dirname + '/src',
   entry: {
@@ -8,7 +6,8 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: __dirname + '/dist',
-    publicPath: 'assets'
+    publicPath: 'assets',
+    sourceMapFilename: '[file].map'
   },
   module: {
     rules: [
@@ -30,5 +29,5 @@ module.exports = {
   devServer: {
     contentBase: __dirname + '/src'
   },
-  devtool: 'eval-source-map'
+  devtool: 'cheap-module-source-map'
 };
