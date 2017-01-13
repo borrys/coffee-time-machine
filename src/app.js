@@ -19,8 +19,11 @@ const arrivals = [
   {name: 'Jane', arrival: moment().add(2, 'minutes').valueOf()},
   {name: 'George', arrival: moment().add(36, 'minutes').valueOf()}
 ];
+const user = {
+  name: localStorage.username
+};
 
-const store = createStore(coffeeTimeMachine, { arrivals }, applyMiddleware(thunk)); 
+const store = createStore(coffeeTimeMachine, { arrivals, user }, applyMiddleware(thunk)); 
 
 store.dispatch(tick());
 
