@@ -1,9 +1,24 @@
-import {DECLARE_ARRIVAL, START_COFFEE_PARTY, DISMISS_COFFEE_NOTIFICATION, SET_NAME, TICK} from './actionTypes';
+import {UPDATE_ARRIVALS, START_COFFEE_PARTY, DISMISS_COFFEE_NOTIFICATION, SET_NAME, TICK} from './actionTypes';
+import backend from './backend/BackendService';
 
 export function declareArrival(time) {
   return (dispatch, getState) => {
     const name = getState().user.name;
-    dispatch({ type: DECLARE_ARRIVAL, name, time }); 
+    backend.addArrival(name, time);
+  };
+}
+
+function convertBackendArrivals({arrivals}) {
+  return arrivals.map(a => {
+    return {name: a.name, arrival: a.time};
+  });
+}
+
+export function updateArrivals() {
+  return (dispatch, getState) => {
+    backend.getArrivals()
+      .then(convertBackendArrivals)
+      .then(arrivals => dispatch({type: UPDATE_ARRIVALS, arrivals}));
   };
 }
 

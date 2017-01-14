@@ -11,20 +11,18 @@ import ArrivalDeclarationContainer from './arrivalDeclaration/ArrivalDeclaration
 import NameSettingContainer from './nameSetting/NameSettingContainer';
 import CoffeePartyNotificationContainer from './coffeeParty/CoffeePartyNotificationContainer';
 import CoffeePartyStarterContainer from './partyStarter/CoffeePartyStarterContainer';
-import { tick } from './actions.js';
+import { tick, updateArrivals } from './actions.js';
+import backend from './backend/BackendService';
 
-const arrivals = [
-  {name: 'John', arrival: moment().add(5, 'minutes').valueOf()},
-  {name: 'Marry', arrival: moment().add(10, 'minutes').valueOf()},
-  {name: 'Jane', arrival: moment().add(2, 'minutes').valueOf()},
-  {name: 'George', arrival: moment().add(36, 'minutes').valueOf()}
-];
 const user = {
   name: localStorage.username
 };
 
-const store = createStore(coffeeTimeMachine, { arrivals, user }, applyMiddleware(thunk)); 
+const store = createStore(coffeeTimeMachine, { user }, applyMiddleware(thunk)); 
 
+backend.onArrivalsChange(() => store.dispatch(updateArrivals()));
+
+store.dispatch(updateArrivals());
 store.dispatch(tick());
 
 render(
