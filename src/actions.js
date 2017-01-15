@@ -1,4 +1,3 @@
-import moment from 'moment';
 import {UPDATE_ARRIVALS, START_COFFEE_PARTY, UPDATE_COFFEE_TIME, DISMISS_COFFEE_NOTIFICATION, SET_NAME, TICK} from './actionTypes';
 import backend from './backend/BackendService';
 
@@ -25,7 +24,7 @@ export function updateArrivals() {
 
 export function startCoffeeParty() {
   return (dispatch, getState) => {
-    backend.setCoffeeTime(moment().valueOf());
+    backend.setCoffeeTime(getState().now);
   };
 }
 
