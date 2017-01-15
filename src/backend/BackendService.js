@@ -7,6 +7,8 @@ class BackendService {
 
     const wsBaseUrl = baseUrl.replace(/^http/, 'ws');
     this.websocket = new WebSocket(`${wsBaseUrl}/events`);
+    this.eventHandlers = {};
+    this.websocket.onmessage = this._onMessage.bind(this);
   }
 
   getArrivals() {
@@ -34,19 +36,21 @@ class BackendService {
   }
 
   onArrivalsChange(callback) {
-    this._onEvent('ARRIVAL_DECLARED', callback);
+    this._registerHandler('ARRIVAL_DECLARED', callback);
   }
 
   onCoffeeTimeChange(callback) {
-    this._onEvent('COFFEE_TIME_SET', callback);
+    this._registerHandler('COFFEE_TIME_SET', callback);
   }
 
-  _onEvent(eventName, callback) {
-    this.websocket.onmessage= event => {
-      if (event.data === eventName) {
-        callback();
-      }
-    };
+  _onMessage(event) {
+    const handlers = this.eventHandlers[event.data] || [];
+    handlers.forEach(h => h());
+  }
+
+  _registerHandler(event, callback) {
+    const handlers = this.eventHandlers[event] || [];
+    this.eventHandlers[event] = handlers.concat([callback]);
   }
 }
 
