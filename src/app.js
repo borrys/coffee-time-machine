@@ -11,7 +11,7 @@ import ArrivalDeclarationContainer from './arrivalDeclaration/ArrivalDeclaration
 import NameSettingContainer from './nameSetting/NameSettingContainer';
 import CoffeePartyNotificationContainer from './coffeeParty/CoffeePartyNotificationContainer';
 import CoffeePartyStarterContainer from './partyStarter/CoffeePartyStarterContainer';
-import { tick, updateArrivals } from './actions.js';
+import { tick, updateArrivals, updateCoffeeTime } from './actions.js';
 import backend from './backend/BackendService';
 
 const user = {
@@ -21,8 +21,10 @@ const user = {
 const store = createStore(coffeeTimeMachine, { user }, applyMiddleware(thunk)); 
 
 backend.onArrivalsChange(() => store.dispatch(updateArrivals()));
+backend.onCoffeeTimeChange(() => store.dispatch(updateCoffeeTime()));
 
 store.dispatch(updateArrivals());
+store.dispatch(updateCoffeeTime());
 store.dispatch(tick());
 
 render(

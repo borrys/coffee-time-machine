@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
 import moment from 'moment';
-import {UPDATE_ARRIVALS, START_COFFEE_PARTY, DISMISS_COFFEE_NOTIFICATION, SET_NAME, TICK} from './actionTypes';
+import {UPDATE_ARRIVALS, UPDATE_COFFEE_TIME, DISMISS_COFFEE_NOTIFICATION, SET_NAME, TICK} from './actionTypes';
 
 function arrivals(state = [], action) {
   switch (action.type) {
@@ -13,9 +13,9 @@ function arrivals(state = [], action) {
 
 function coffee(state = {}, action) {
   switch (action.type) {
-    case START_COFFEE_PARTY:
+    case UPDATE_COFFEE_TIME:
       return {
-        time: moment().valueOf(),
+        time: action.time,
         notification: true
       };
       break;

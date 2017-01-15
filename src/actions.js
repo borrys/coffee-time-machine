@@ -1,4 +1,5 @@
-import {UPDATE_ARRIVALS, START_COFFEE_PARTY, DISMISS_COFFEE_NOTIFICATION, SET_NAME, TICK} from './actionTypes';
+import moment from 'moment';
+import {UPDATE_ARRIVALS, START_COFFEE_PARTY, UPDATE_COFFEE_TIME, DISMISS_COFFEE_NOTIFICATION, SET_NAME, TICK} from './actionTypes';
 import backend from './backend/BackendService';
 
 export function declareArrival(time) {
@@ -23,8 +24,15 @@ export function updateArrivals() {
 }
 
 export function startCoffeeParty() {
-  return {
-    type: START_COFFEE_PARTY
+  return (dispatch, getState) => {
+    backend.setCoffeeTime(moment().valueOf());
+  };
+}
+
+export function updateCoffeeTime() {
+  return (dispatch, getState) => {
+    backend.getCoffeeTime()
+      .then(res => dispatch({type: UPDATE_COFFEE_TIME, time: res.time}));
   };
 }
 
