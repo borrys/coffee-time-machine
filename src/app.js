@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import thunk from 'redux-thunk';
 import moment from 'moment';
 import coffeeTimeMachine from './reducers';
@@ -27,15 +28,21 @@ store.dispatch(updateArrivals());
 store.dispatch(updateCoffeeTime());
 store.dispatch(tick());
 
+const MainPage = () => {
+  return <div>
+    <TimeTableContainer />
+    <NameSettingContainer />
+    <ArrivalDeclarationContainer />
+    <CoffeePartyNotificationContainer />
+    <CoffeePartyStarterContainer />
+  </div>;
+}
+
 render(
   <Provider store={store}>
-    <div>
-      <TimeTableContainer />
-      <NameSettingContainer />
-      <ArrivalDeclarationContainer />
-      <CoffeePartyNotificationContainer />
-      <CoffeePartyStarterContainer />
-    </div>
+    <Router history={hashHistory}>
+      <Route path="/" component={MainPage} />
+    </Router>
   </Provider>,
   document.getElementById('app')
 );
