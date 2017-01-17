@@ -14,6 +14,7 @@ import CoffeePartyNotificationContainer from './coffeeParty/CoffeePartyNotificat
 import CoffeePartyStarterContainer from './partyStarter/CoffeePartyStarterContainer';
 import { tick, updateArrivals, updateCoffeeTime } from './actions.js';
 import backend from './backend/BackendService';
+import Layout from './pages/Layout';
 
 const user = {
   name: localStorage.username
@@ -31,17 +32,23 @@ store.dispatch(tick());
 const MainPage = () => {
   return <div>
     <TimeTableContainer />
-    <NameSettingContainer />
     <ArrivalDeclarationContainer />
     <CoffeePartyNotificationContainer />
     <CoffeePartyStarterContainer />
   </div>;
-}
+};
+
+const SettingsPage = () => {
+  return <NameSettingContainer />;
+};
 
 render(
   <Provider store={store}>
     <Router history={hashHistory}>
-      <Route path="/" component={MainPage} />
+      <Route path="/" component={Layout} >
+        <IndexRoute component={MainPage} />
+        <Route path="settings" component={SettingsPage} />
+      </Route>
     </Router>
   </Provider>,
   document.getElementById('app')
