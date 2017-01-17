@@ -31,7 +31,7 @@ export function startCoffeeParty() {
 export function updateCoffeeTime() {
   return (dispatch, getState) => {
     backend.getCoffeeTime()
-      .then(res => dispatch({type: UPDATE_COFFEE_TIME, time: res.time}));
+      .then(res => res.time && dispatch({type: UPDATE_COFFEE_TIME, time: res.time}));
   };
 }
 
