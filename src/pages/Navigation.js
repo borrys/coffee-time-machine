@@ -4,8 +4,8 @@ import {IndexLink, Link} from 'react-router';
 export default class Navigation extends React.Component {
   render () {
     return <nav>
-      <IndexLink to='/'>Timetable</IndexLink>
-      <Link to='settings'>Settings</Link>
+      <IndexLink to='/' activeClassName='active'>Timetable</IndexLink>
+      <Link to='settings' activeClassName='active'>Settings</Link>
     </nav>;
   };
 }

@@ -1,0 +1,22 @@
+body {
+  font-family: sans-serif;
+}
+
+nav {
+  background-color: #4286f4;
+  padding: 1em;
+  display: flex;
+
+  * {
+    color: white;
+    text-decoration: none;
+    text-transform: capitalize;
+    padding: 0.5em;
+
+    &.active {
+      background-color: #336ac4;
+    }
+  }
+
+}
+
