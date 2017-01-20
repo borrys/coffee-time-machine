@@ -2,6 +2,9 @@
 
 .time-table {
   @include bordered-box;
+  h2 {
+    color: lightgray;
+  }
 }
 
 .user-lane {

@@ -8,9 +8,16 @@ function user(user, now) {
 
 class TimeTable extends React.Component {
   render() {
-    const now = this.props.now;
+    let content;
+    if (this.props.users.length) {
+      const now = this.props.now;
+      content = this.props.users.map(u => user(u, now));
+    } else {
+      content = <h2>Noone has declared yet :(</h2>;
+    }
+
     return <div className='time-table'>
-      {this.props.users.map(u => user(u, now))}
+      {content}
     </div>;
   }
 }
