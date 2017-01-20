@@ -7,7 +7,7 @@ nav {
   padding: 1em;
   display: flex;
 
-  * {
+  a {
     color: white;
     text-decoration: none;
     text-transform: capitalize;
@@ -16,6 +16,11 @@ nav {
     &.active {
       background-color: #336ac4;
     }
+  }
+
+  .separator {
+    margin: 0 1.5em;
+    border-left: 1px solid #abc7f5;
   }
 
 }
