@@ -1,6 +1,7 @@
 import React from 'react';
 import {IndexLink, Link} from 'react-router';
 import CoffeePartyStarterContainer from '../partyStarter/CoffeePartyStarterContainer';
+import Github from '../auth/Github';
 
 export default class Navigation extends React.Component {
   render () {
@@ -9,6 +10,8 @@ export default class Navigation extends React.Component {
       <Link to='settings' activeClassName='active'>Settings</Link>
 
       <div className='separator' />
+      
+      <Github />
 
       <CoffeePartyStarterContainer />
     </nav>;
