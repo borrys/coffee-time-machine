@@ -1,3 +1,5 @@
+@import '../commons/style.scss';
+
 .github {
   &:before {
     background-image: url('./github_logo.png');
@@ -8,4 +10,9 @@
     content: '';
     vertical-align: -50%;
   }
+
+  .authorize {
+    @include button(#5cb85c);
+  }
+
 }
