@@ -1,3 +1,11 @@
 .github {
-  background-image: url('./github_logo.png')
+  &:before {
+    background-image: url('./github_logo.png');
+    background-size: contain;
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    content: '';
+    vertical-align: -50%;
+  }
 }

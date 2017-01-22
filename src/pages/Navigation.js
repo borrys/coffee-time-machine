@@ -11,9 +11,9 @@ export default class Navigation extends React.Component {
 
       <div className='separator' />
       
-      <Github />
-
       <CoffeePartyStarterContainer />
+
+      <Github />
     </nav>;
   };
 }
